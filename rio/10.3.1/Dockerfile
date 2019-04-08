@@ -6,6 +6,7 @@ ENV SEMANTIC_VERSION=10.3.1
 
 RUN apt-get -y update \
     && apt-get -y install \
+    wget \
     vim \
     curl \
     unzip \
