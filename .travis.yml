@@ -11,7 +11,7 @@ install:
 
 before_script:
   - cd "$NAME_VERSION/$SEMANTIC_VERSION"
-  - IMAGE="hashload/delphi-dev:$SEMANTIC_VERSION-$NAME_VERSION"
+  - IMAGE="hashload/radserver:$SEMANTIC_VERSION-$NAME_VERSION"
 
 script:
   - docker build -t $IMAGE .
