@@ -1,0 +1,20 @@
+language: bash
+services: docker
+
+env:
+  - NAME_VERSION=rio SEMANTIC_VERSION=10.3.1
+  - NAME_VERSION=rio SEMANTIC_VERSION=10.3.0 
+  - NAME_VERSION=tokyo SEMANTIC_VERSION=10.2.3  
+
+install:
+  - docker login -u $USER_DOCKER_HUB -p $PASSWORD_DOCKER_HUB
+
+before_script:
+  - cd "$NAME_VERSION/$SEMANTIC_VERSION"
+  - IMAGE="hashload/delphi-dev:$SEMANTIC_VERSION-$NAME_VERSION"
+
+script:
+  - docker build -t $IMAGE .
+    
+after_script:
+  - docker push $IMAGE
